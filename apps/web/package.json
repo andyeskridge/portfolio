@@ -9,6 +9,10 @@
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
 		"pages:build": "bunx @cloudflare/next-on-pages",
 		"preview": "bun pages:build && wrangler pages dev",
-		"deploy": "bun pages:build && wrangler pages deploy"
+		"deploy": "bun pages:build && wrangler pages deploy",
+		"lint": "biome check . --fix"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3"
 	}
 }

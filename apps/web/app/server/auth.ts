@@ -1,6 +1,6 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
+import GitHub from "next-auth/providers/github";
 import { db } from "./db";
 
 export const {
@@ -20,10 +20,5 @@ export const {
 		}),
 	},
 	adapter: DrizzleAdapter(db),
-	providers: [
-		Google({
-			clientId: process.env.GOOGLE_CLIENT_ID,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-		}),
-	],
+	providers: [GitHub],
 });

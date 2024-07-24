@@ -10,11 +10,11 @@ export const runtime = "edge";
 export default async function Page() {
 	const usr = await auth();
 
-	const userCount = await db
-		.select({
-			count: sql<number>`count(*)`.mapWith(Number),
-		})
-		.from(users);
+	// const userCount = await db
+	// 	.select({
+	// 		count: sql<number>`count(*)`.mapWith(Number),
+	// 	})
+	// 	.from(users);
 
 	const SetThemeButton = getThemeToggler();
 
@@ -84,9 +84,7 @@ export default async function Page() {
 						... best part: everything's already set up for you. Just code!
 					</li>
 				</ul>
-				<div className="mt-4 flex flex-col gap-2">
-					<span>Number of users in database: {userCount[0]!.count}</span>
-				</div>
+				<div className="mt-4 flex flex-col gap-2" />
 				{usr?.user?.email ? (
 					<>
 						<div className="mt-4 flex flex-col gap-2">
@@ -106,10 +104,10 @@ export default async function Page() {
 					<form
 						action={async () => {
 							"use server";
-							await signIn("google");
+							await signIn("github");
 						}}
 					>
-						<Button className="mt-4">Login with Google</Button>
+						<Button className="mt-4">Login with GitHub</Button>
 					</form>
 				)}
 			</div>
