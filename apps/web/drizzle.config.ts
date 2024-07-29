@@ -14,6 +14,7 @@ function getLocalD1DB() {
 		}
 
 		const url = path.resolve(basePath, dbFile);
+		console.log(`Using local db at ${url}`);
 		return url;
 	} catch (err) {
 		console.log(`Error  ${err}`);

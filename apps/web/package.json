@@ -3,13 +3,13 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
-		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+		"cf-typegen": "bunx wrangler types --env-interface CloudflareEnv env.d.ts",
 		"pages:build": "bunx @cloudflare/next-on-pages",
-		"preview": "bun pages:build && wrangler pages dev",
-		"deploy": "bun pages:build && wrangler pages deploy",
+		"preview": "bun pages:build && bunx wrangler pages dev",
+		"deploy": "bun pages:build && bunx wrangler pages deploy",
 		"lint": "biome check . --fix"
 	},
 	"devDependencies": {
